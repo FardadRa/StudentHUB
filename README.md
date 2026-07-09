@@ -100,20 +100,22 @@ My responsibilities included:
 
 ## Architecture
 
-```
-React Native App
-        │
-        ▼
- Express.js REST API
-        │
- ┌──────┴────────┐
- │               │
- ▼               ▼
-OpenAI API   PostgreSQL
- │
- ▼
-Course Scraper
-(Axios + Cheerio)
+```mermaid
+flowchart TD
+    A[React Native Mobile App]
+    B[Express.js REST API]
+    C[PostgreSQL Database]
+    D[OpenAI GPT API]
+    E[Course Scraper]
+    F[York University Course Data]
+
+    A -->|REST API Requests| B
+    B --> C
+    B --> D
+    B --> E
+    E --> F
+    D -->|AI Response| B
+    B -->|JSON Response| A
 ```
 
 ---
